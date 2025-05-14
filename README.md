@@ -13,6 +13,7 @@ Application de suivi de performance pour un portefeuille de 100 actions diversif
 
 ## Installation
 pip install -r requirements.txt
+
 streamlit run app.py
 
 L'application utilise l'API yfinance pour récupérer les données boursières en temps réel.
