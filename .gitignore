@@ -17,6 +17,7 @@ build/
 
 # Fichiers locaux Streamlit
 .streamlit/secrets.toml
+.streamlit/watchdog.log
 
 # Logs et fichiers temporaires
 *.log
@@ -25,10 +26,27 @@ build/
 .ipynb_checkpoints
 
 # Données sensibles ou volumineuses qui ne doivent pas être versionnées
-# (adaptez selon vos besoins)
-secrets/
-large_data/
+# Décommentez si nécessaire pour des fichiers de données spécifiques
+# data/large_*.csv
+# data/raw_*.csv
+# data/sensitive_*.csv
 
 # Fichiers de configuration spécifiques à l'IDE
 .idea/
 .vscode/
+.code-workspace
+
+# Fichiers de sauvegarde
+*~
+*.bak
+*.swp
+*.swo
+
+# Fichiers système
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Fichiers temporaires
+tmp/
+temp/
