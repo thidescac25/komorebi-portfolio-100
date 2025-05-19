@@ -16,11 +16,11 @@ Application de suivi de performance pour un portefeuille de 100 actions diversif
 
 ```bash
 pip install -r requirements.txt
-streamlit run 2_Performance_Analysis.py
+streamlit run app.py
 
 Architecture
 KOMOREBI INVEST 100/
-├── 2_Performance_Analysis.py      # Fichier principal de l'application
+├── app.py      # Fichier principal de l'application
 ├── src/                          # Modules modulaires
 │   ├── data_loader.py           # Chargement des données boursières
 │   ├── stock_utils.py           # Utilitaires devises et formatage
