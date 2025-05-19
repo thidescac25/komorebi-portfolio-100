@@ -18,6 +18,7 @@ build/
 # Fichiers locaux Streamlit
 .streamlit/secrets.toml
 .streamlit/watchdog.log
+.streamlit/config.toml
 
 # Logs et fichiers temporaires
 *.log
@@ -50,3 +51,8 @@ Desktop.ini
 # Fichiers temporaires
 tmp/
 temp/
+
+# Ajouts pour ce projet
+*.pyc
+.coverage
+htmlcov/
