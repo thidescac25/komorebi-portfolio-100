@@ -200,3 +200,41 @@ def get_exchange_name(ticker):
         if ticker.endswith(suffix):
             return exchange
     return 'NASDAQ/NYSE'  # Par défaut pour les actions américaines
+
+# Mapping des suffixes de ticker vers les pays
+TICKER_COUNTRY_MAPPING = {
+    '.PA': 'France',
+    '.L': 'Royaume-Uni', 
+    '.SW': 'Suisse',
+    '.DE': 'Allemagne',
+    '.T': 'Japon',
+    '.AX': 'Australie',
+    '.NS': 'Inde',
+    '.KS': 'Corée du Sud',
+    '.BR': 'Belgique',
+    '.MC': 'Espagne',
+    '.CO': 'Danemark',
+    '.OL': 'Norvège',
+    '.LU': 'Luxembourg',
+    '.ST': 'Suède',
+    '.HK': 'Hong Kong',
+    '.SS': 'Chine',
+    '.SZ': 'Chine',
+    '.AS': 'Pays-Bas',
+    '.MI': 'Italie'
+}
+
+def get_country_from_ticker(ticker):
+    """
+    Retourne le pays à partir du suffixe du ticker.
+    
+    Args:
+        ticker (str): Symbole de l'action
+        
+    Returns:
+        str: Nom du pays
+    """
+    for suffix, country in TICKER_COUNTRY_MAPPING.items():
+        if ticker.endswith(suffix):
+            return country
+    return 'États-Unis'  # Par défaut pour les actions américaines

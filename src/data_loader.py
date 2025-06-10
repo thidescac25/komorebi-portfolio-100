@@ -3,6 +3,7 @@ import streamlit as st
 import yfinance as yf
 import concurrent.futures
 from datetime import datetime, timedelta
+from src.stock_utils import get_country_from_ticker
 
 @st.cache_data
 def load_portfolio_data():
@@ -217,16 +218,23 @@ def load_sector_country_data(tickers):
     def fetch_sector_country(ticker):
         try:
             info = yf.Ticker(ticker).info
+            sector = info.get("sector", "Non disponible")
+            country = info.get("country", "Non disponible")
+            
+            # Fallback si le pays n'est pas disponible via l'API
+            if not country or country == "Non disponible":
+                country = get_country_from_ticker(ticker)
+                
             return {
                 "Ticker": ticker,
-                "Sector": info.get("sector", "Non disponible"),
-                "Country": info.get("country", "Non disponible")
+                "Sector": sector,
+                "Country": country
             }
         except Exception as e:
             return {
                 "Ticker": ticker,
                 "Sector": "Non disponible",
-                "Country": "Non disponible"
+                "Country": get_country_from_ticker(ticker)  # Utilise le fallback même en cas d'erreur
             }
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
